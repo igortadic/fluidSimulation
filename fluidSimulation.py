@@ -57,5 +57,17 @@ def main():
 
 			n_particles += 3
 
-if __name__ = "__main__":
+			position = np.concatenate((positions, new_positions), axis = 0)
+			velocities = np.concatenate((velocities, new_velocities) axis=0)
+
+		neighbour_ids, distance = neighbors.KDTree(
+			positions,
+		).query_radius(
+			positions,
+			SMOOTHING_LENGHT,
+			return_distance = True,
+			sort_results = True,
+		)
+
+if __name__ == "__main__":
 	main()
